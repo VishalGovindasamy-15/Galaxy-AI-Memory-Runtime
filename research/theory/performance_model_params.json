@@ -1,0 +1,733 @@
+{
+  "version": "1.0",
+  "phase": "1.5",
+  "description": "Stochastic Performance Model parameters fitted from Phase 1 data",
+  "ssd_model": {
+    "type": "lognormal_per_block_size",
+    "parameters": {
+      "1.0": {
+        "distribution": "lognormal",
+        "mu": -0.40915,
+        "sigma": 0.40261,
+        "mean_ms": 0.7203,
+        "std_ms": 0.3022,
+        "cv": 0.4195,
+        "p50_ms": 0.6755,
+        "p95_ms": 1.3041,
+        "p99_ms": 1.4443,
+        "ks_stat": 0.102,
+        "ks_p_value": 0.9717,
+        "n_samples": 20
+      },
+      "2.0": {
+        "distribution": "lognormal",
+        "mu": -0.04613,
+        "sigma": 0.22729,
+        "mean_ms": 0.9799,
+        "std_ms": 0.2256,
+        "cv": 0.2303,
+        "p50_ms": 1.032,
+        "p95_ms": 1.236,
+        "p99_ms": 1.3731,
+        "ks_stat": 0.1681,
+        "ks_p_value": 0.5677,
+        "n_samples": 20
+      },
+      "4.0": {
+        "distribution": "lognormal",
+        "mu": 0.88877,
+        "sigma": 0.31979,
+        "mean_ms": 2.5597,
+        "std_ms": 0.84,
+        "cv": 0.3281,
+        "p50_ms": 2.9345,
+        "p95_ms": 3.6371,
+        "p99_ms": 3.7497,
+        "ks_stat": 0.265,
+        "ks_p_value": 0.0995,
+        "n_samples": 20
+      },
+      "8.0": {
+        "distribution": "lognormal",
+        "mu": 1.13793,
+        "sigma": 0.32029,
+        "mean_ms": 3.2845,
+        "std_ms": 1.0796,
+        "cv": 0.3287,
+        "p50_ms": 2.7439,
+        "p95_ms": 5.5151,
+        "p99_ms": 5.5813,
+        "ks_stat": 0.1819,
+        "ks_p_value": 0.4683,
+        "n_samples": 20
+      },
+      "16.0": {
+        "distribution": "lognormal",
+        "mu": 2.13247,
+        "sigma": 0.34528,
+        "mean_ms": 8.9538,
+        "std_ms": 3.186,
+        "cv": 0.3558,
+        "p50_ms": 9.5731,
+        "p95_ms": 13.2321,
+        "p99_ms": 14.5832,
+        "ks_stat": 0.2079,
+        "ks_p_value": 0.3085,
+        "n_samples": 20
+      },
+      "32.0": {
+        "distribution": "lognormal",
+        "mu": 3.11847,
+        "sigma": 0.47381,
+        "mean_ms": 25.2979,
+        "std_ms": 12.6918,
+        "cv": 0.5017,
+        "p50_ms": 18.0593,
+        "p95_ms": 51.1473,
+        "p99_ms": 54.2872,
+        "ks_stat": 0.1974,
+        "ks_p_value": 0.0007,
+        "n_samples": 100,
+        "source": "exp01b (100 trials, higher quality)"
+      },
+      "64.0": {
+        "distribution": "lognormal",
+        "mu": 3.82336,
+        "sigma": 0.3467,
+        "mean_ms": 48.592,
+        "std_ms": 17.3662,
+        "cv": 0.3574,
+        "p50_ms": 51.4014,
+        "p95_ms": 76.8296,
+        "p99_ms": 86.8549,
+        "ks_stat": 0.2004,
+        "ks_p_value": 0.3502,
+        "n_samples": 20
+      },
+      "128.0": {
+        "distribution": "lognormal",
+        "mu": 4.27826,
+        "sigma": 0.39873,
+        "mean_ms": 78.0811,
+        "std_ms": 32.4124,
+        "cv": 0.4151,
+        "p50_ms": 66.5414,
+        "p95_ms": 138.0378,
+        "p99_ms": 161.4769,
+        "ks_stat": 0.1844,
+        "ks_p_value": 0.4512,
+        "n_samples": 20
+      }
+    },
+    "note": "T_SSD(B) ~ Lognormal(mu_B, sigma_B). Use random-mode data."
+  },
+  "pcie_model": {
+    "model": "linear",
+    "slope_ms_per_mb": 0.091407,
+    "intercept_ms": 0.3412,
+    "bandwidth_gb_per_s": 10.684,
+    "fit_rmse_ms": 0.1251,
+    "cv_per_block": {
+      "1": 0.1871,
+      "2": 0.1901,
+      "4": 0.775,
+      "8": 0.0661,
+      "16": 0.4195,
+      "32": 0.0839,
+      "64": 0.0242,
+      "128": 0.0286
+    },
+    "note_4mb": "4MB pinned has fat tail: P99=2.37ms. Use P99 for risk model."
+  },
+  "gpu_model": {
+    "type": "lookup_table",
+    "parameters": {
+      "1": {
+        "t_gemm_ms": 0.01684,
+        "t_ffn_ms": 0.02586,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.13059,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "2": {
+        "t_gemm_ms": 0.0211,
+        "t_ffn_ms": 0.03827,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.143,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "4": {
+        "t_gemm_ms": 0.03638,
+        "t_ffn_ms": 0.06694,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.17167,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "8": {
+        "t_gemm_ms": 0.07144,
+        "t_ffn_ms": 0.13646,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.24119,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "16": {
+        "t_gemm_ms": 0.1271,
+        "t_ffn_ms": 0.24725,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.35198,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "32": {
+        "t_gemm_ms": 0.22782,
+        "t_ffn_ms": 0.44948,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.55421,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "64": {
+        "t_gemm_ms": 0.43999,
+        "t_ffn_ms": 0.86832,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 0.97305,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      },
+      "128": {
+        "t_gemm_ms": 0.84826,
+        "t_ffn_ms": 1.68769,
+        "t_attention_ms": 0.07365,
+        "t_layernorm_ms": 0.01554,
+        "t_one_layer_ms": 1.79242,
+        "note": "t_one_layer is a lower bound on W_overlap for 1 complete layer"
+      }
+    },
+    "other_ops": {
+      "attention_ms": 0.07365,
+      "layernorm_ms": 0.01554,
+      "softmax_ms": 0.00891,
+      "ffn_32mb_ms": 1.70737
+    },
+    "note": "T_one_layer is a LOWER BOUND on W_overlap. Real W_overlap includes all layers processed while one block transfers."
+  },
+  "pstall_table": [
+    {
+      "block_mb": 1,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.1306,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 0.2612,
+      "p_stall": 0.9898,
+      "stall_pct": 98.98,
+      "meets_target": false
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 0.5224,
+      "p_stall": 0.7247,
+      "stall_pct": 72.47,
+      "meets_target": false
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 1.0447,
+      "p_stall": 0.1303,
+      "stall_pct": 13.03,
+      "meets_target": false
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 2.0894,
+      "p_stall": 0.0022,
+      "stall_pct": 0.22,
+      "meets_target": true
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 4.1789,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 8.3578,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 1,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 16.7155,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.143,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 0.286,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 0.572,
+      "p_stall": 0.9879,
+      "stall_pct": 98.79,
+      "meets_target": false
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 1.144,
+      "p_stall": 0.2134,
+      "stall_pct": 21.34,
+      "meets_target": false
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 2.288,
+      "p_stall": 0.0001,
+      "stall_pct": 0.01,
+      "meets_target": true
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 4.576,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 9.152,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 2,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 18.304,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.1717,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 0.3433,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 0.6867,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 1.3734,
+      "p_stall": 0.963,
+      "stall_pct": 96.3,
+      "meets_target": false
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 2.7467,
+      "p_stall": 0.3518,
+      "stall_pct": 35.18,
+      "meets_target": false
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 5.4934,
+      "p_stall": 0.0054,
+      "stall_pct": 0.54,
+      "meets_target": true
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 10.9869,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 4,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 21.9738,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.2412,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 0.4824,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 0.9648,
+      "p_stall": 0.9999,
+      "stall_pct": 99.99,
+      "meets_target": false
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 1.9295,
+      "p_stall": 0.9333,
+      "stall_pct": 93.33,
+      "meets_target": false
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 3.859,
+      "p_stall": 0.2535,
+      "stall_pct": 25.35,
+      "meets_target": false
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 7.7181,
+      "p_stall": 0.0023,
+      "stall_pct": 0.23,
+      "meets_target": true
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 15.4362,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 8,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 30.8723,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.352,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 0.704,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 1.4079,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 2.8158,
+      "p_stall": 0.9993,
+      "stall_pct": 99.93,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 5.6317,
+      "p_stall": 0.879,
+      "stall_pct": 87.9,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 11.2634,
+      "p_stall": 0.2012,
+      "stall_pct": 20.12,
+      "meets_target": false
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 22.5267,
+      "p_stall": 0.0022,
+      "stall_pct": 0.22,
+      "meets_target": true
+    },
+    {
+      "block_mb": 16,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 45.0534,
+      "p_stall": 0.0,
+      "stall_pct": 0.0,
+      "meets_target": true
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.5542,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 1.1084,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 2.2168,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 4.4337,
+      "p_stall": 0.9997,
+      "stall_pct": 99.97,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 8.8674,
+      "p_stall": 0.9759,
+      "stall_pct": 97.59,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 17.7347,
+      "p_stall": 0.6959,
+      "stall_pct": 69.59,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 35.4694,
+      "p_stall": 0.171,
+      "stall_pct": 17.1,
+      "meets_target": false
+    },
+    {
+      "block_mb": 32,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 70.9389,
+      "p_stall": 0.0079,
+      "stall_pct": 0.79,
+      "meets_target": true
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 0.973,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 1.9461,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 3.8922,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 7.7844,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 15.5688,
+      "p_stall": 0.9991,
+      "stall_pct": 99.91,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 31.1376,
+      "p_stall": 0.8666,
+      "stall_pct": 86.66,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 62.2752,
+      "p_stall": 0.187,
+      "stall_pct": 18.7,
+      "meets_target": false
+    },
+    {
+      "block_mb": 64,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 124.5504,
+      "p_stall": 0.0019,
+      "stall_pct": 0.19,
+      "meets_target": true
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 1,
+      "w_overlap_ms": 1.7924,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 2,
+      "w_overlap_ms": 3.5848,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 4,
+      "w_overlap_ms": 7.1697,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 8,
+      "w_overlap_ms": 14.3394,
+      "p_stall": 1.0,
+      "stall_pct": 100.0,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 16,
+      "w_overlap_ms": 28.6787,
+      "p_stall": 0.9896,
+      "stall_pct": 98.96,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 32,
+      "w_overlap_ms": 57.3574,
+      "p_stall": 0.7171,
+      "stall_pct": 71.71,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 64,
+      "w_overlap_ms": 114.7149,
+      "p_stall": 0.1222,
+      "stall_pct": 12.22,
+      "meets_target": false
+    },
+    {
+      "block_mb": 128,
+      "prefetch_depth": 128,
+      "w_overlap_ms": 229.4298,
+      "p_stall": 0.0019,
+      "stall_pct": 0.19,
+      "meets_target": true
+    }
+  ],
+  "epsilon_target": 0.05
+}
