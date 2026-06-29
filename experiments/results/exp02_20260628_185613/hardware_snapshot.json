@@ -1,0 +1,22 @@
+{
+  "before": {
+    "timestamp": "2026-06-28T18:56:13.129312",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 58.0,
+    "gpu_mem_used_mb": 4.0,
+    "gpu_mem_free_mb": 5801.0
+  },
+  "after": {
+    "timestamp": "2026-06-28T18:56:18.229473",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 62.0,
+    "gpu_mem_used_mb": 92.0,
+    "gpu_mem_free_mb": 5714.0
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "system": {
+    "os": "linux",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "hostname": "pop-os"
+  }
+}

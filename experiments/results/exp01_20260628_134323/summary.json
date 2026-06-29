@@ -1,0 +1,108 @@
+{
+  "experiment_id": "exp01",
+  "objective": "Measure SSD read throughput and latency for block sizes 1-128 MB",
+  "hypothesis": "H1",
+  "git_commit": "154826c8dfe9649a4f4384650d5c62bc72343509",
+  "modes_run": [
+    "sequential",
+    "random"
+  ],
+  "summary_stats": [
+    {
+      "mode": "sequential",
+      "block_mb": 1.0,
+      "mean_gbps": 1.0218,
+      "std_gbps": 0.3207
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 2.0,
+      "mean_gbps": 1.343,
+      "std_gbps": 0.609
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 4.0,
+      "mean_gbps": 1.2146,
+      "std_gbps": 0.3026
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 8.0,
+      "mean_gbps": 1.2609,
+      "std_gbps": 0.4077
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 16.0,
+      "mean_gbps": 0.9695,
+      "std_gbps": 0.5049
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 32.0,
+      "mean_gbps": 1.5504,
+      "std_gbps": 0.8024
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 64.0,
+      "mean_gbps": 1.4859,
+      "std_gbps": 0.6232
+    },
+    {
+      "mode": "sequential",
+      "block_mb": 128.0,
+      "mean_gbps": 1.6187,
+      "std_gbps": 0.5491
+    },
+    {
+      "mode": "random",
+      "block_mb": 1.0,
+      "mean_gbps": 1.4558,
+      "std_gbps": 0.6107
+    },
+    {
+      "mode": "random",
+      "block_mb": 2.0,
+      "mean_gbps": 2.1401,
+      "std_gbps": 0.4928
+    },
+    {
+      "mode": "random",
+      "block_mb": 4.0,
+      "mean_gbps": 1.6386,
+      "std_gbps": 0.5377
+    },
+    {
+      "mode": "random",
+      "block_mb": 8.0,
+      "mean_gbps": 2.554,
+      "std_gbps": 0.8394
+    },
+    {
+      "mode": "random",
+      "block_mb": 16.0,
+      "mean_gbps": 1.8738,
+      "std_gbps": 0.6667
+    },
+    {
+      "mode": "random",
+      "block_mb": 32.0,
+      "mean_gbps": 1.7795,
+      "std_gbps": 0.5734
+    },
+    {
+      "mode": "random",
+      "block_mb": 64.0,
+      "mean_gbps": 1.3811,
+      "std_gbps": 0.4936
+    },
+    {
+      "mode": "random",
+      "block_mb": 128.0,
+      "mean_gbps": 1.719,
+      "std_gbps": 0.7136
+    }
+  ]
+}

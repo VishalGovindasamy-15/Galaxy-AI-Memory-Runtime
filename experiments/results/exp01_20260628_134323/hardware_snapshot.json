@@ -1,0 +1,19 @@
+{
+  "before": {
+    "timestamp": "2026-06-28T13:43:23.938393",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 58.0,
+    "nvme_temp_c": 62.85
+  },
+  "after": {
+    "timestamp": "2026-06-28T13:43:39.251395",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 59.0,
+    "nvme_temp_c": 62.85
+  },
+  "system": {
+    "os": "linux",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "hostname": "pop-os"
+  }
+}

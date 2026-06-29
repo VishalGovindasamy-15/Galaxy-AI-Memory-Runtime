@@ -1,0 +1,18 @@
+# Galaxy AI Memory Runtime — Dependencies
+# Install: pip install -r requirements.txt
+# For CUDA: pip install torch --index-url https://download.pytorch.org/whl/cu128
+
+torch>=2.3.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+scipy>=1.12.0
+psutil>=5.9.0
+dataclasses-json>=0.6.0
+tqdm>=4.66.0
+
+# Optional: for safetensors support (Phase 4)
+# safetensors>=0.4.0
+
+# Development
+pytest>=8.0.0
+black>=24.0.0

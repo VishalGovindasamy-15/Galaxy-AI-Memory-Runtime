@@ -1,0 +1,140 @@
+{
+  "experiment_id": "exp02",
+  "objective": "Measure PCIe RAM\u2192VRAM transfer time distribution",
+  "hypothesis": [
+    "H1",
+    "H4"
+  ],
+  "git_commit": "154826c8dfe9649a4f4384650d5c62bc72343509",
+  "question": "Is PCIe more predictable than SSD?",
+  "results_summary": [
+    {
+      "mode": "pinned",
+      "block_mb": 1,
+      "mean_gbps": 3.8808,
+      "std_gbps": 0.726,
+      "p95_ms": 0.34,
+      "cv": 0.1871
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 2,
+      "mean_gbps": 5.3273,
+      "std_gbps": 1.0127,
+      "p95_ms": 0.4742,
+      "cv": 0.1901
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 4,
+      "mean_gbps": 5.5049,
+      "std_gbps": 4.2659,
+      "p95_ms": 0.9399,
+      "cv": 0.7749
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 8,
+      "mean_gbps": 7.7791,
+      "std_gbps": 0.5138,
+      "p95_ms": 1.2197,
+      "cv": 0.0661
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 16,
+      "mean_gbps": 8.0972,
+      "std_gbps": 3.3968,
+      "p95_ms": 2.2651,
+      "cv": 0.4195
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 32,
+      "mean_gbps": 10.1434,
+      "std_gbps": 0.8515,
+      "p95_ms": 3.6365,
+      "cv": 0.0839
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 64,
+      "mean_gbps": 10.9639,
+      "std_gbps": 0.2652,
+      "p95_ms": 6.3271,
+      "cv": 0.0242
+    },
+    {
+      "mode": "pinned",
+      "block_mb": 128,
+      "mean_gbps": 11.1533,
+      "std_gbps": 0.3192,
+      "p95_ms": 12.4895,
+      "cv": 0.0286
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 1,
+      "mean_gbps": 2.4523,
+      "std_gbps": 0.4058,
+      "p95_ms": 0.5239,
+      "cv": 0.1655
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 2,
+      "mean_gbps": 3.8515,
+      "std_gbps": 0.4733,
+      "p95_ms": 0.6491,
+      "cv": 0.1229
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 4,
+      "mean_gbps": 5.5467,
+      "std_gbps": 0.596,
+      "p95_ms": 0.8754,
+      "cv": 0.1075
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 8,
+      "mean_gbps": 6.6954,
+      "std_gbps": 0.6561,
+      "p95_ms": 1.4628,
+      "cv": 0.098
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 16,
+      "mean_gbps": 7.7085,
+      "std_gbps": 0.9677,
+      "p95_ms": 2.5577,
+      "cv": 0.1255
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 32,
+      "mean_gbps": 8.5179,
+      "std_gbps": 0.6915,
+      "p95_ms": 4.5455,
+      "cv": 0.0812
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 64,
+      "mean_gbps": 9.1741,
+      "std_gbps": 0.6521,
+      "p95_ms": 8.2454,
+      "cv": 0.0711
+    },
+    {
+      "mode": "pageable",
+      "block_mb": 128,
+      "mean_gbps": 9.5725,
+      "std_gbps": 0.3036,
+      "p95_ms": 14.6694,
+      "cv": 0.0317
+    }
+  ]
+}

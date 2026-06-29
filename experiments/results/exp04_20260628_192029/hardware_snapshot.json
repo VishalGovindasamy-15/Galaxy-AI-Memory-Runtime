@@ -1,0 +1,15 @@
+{
+  "before": {
+    "timestamp": "2026-06-28T19:20:29.339657",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 59.0,
+    "nvme_temp_c": 63.0
+  },
+  "after": {
+    "timestamp": "2026-06-28T19:20:57.473956",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 62.0,
+    "nvme_temp_c": 64.0
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+}

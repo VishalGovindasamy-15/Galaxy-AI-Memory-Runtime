@@ -1,0 +1,16 @@
+{
+  "before": {
+    "timestamp": "2026-06-28T19:07:00.977241",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 58.0,
+    "gpu_clock_sm_mhz": "210 MHz",
+    "gpu_clock_mem_mhz": "405 MHz"
+  },
+  "after": {
+    "timestamp": "2026-06-28T19:07:01.796524",
+    "cpu_temp_c": 20.0,
+    "gpu_temp_c": 65.0,
+    "gpu_clock_sm_mhz": "1942 MHz",
+    "gpu_clock_mem_mhz": "7001 MHz"
+  }
+}
